@@ -34,6 +34,7 @@ export class News extends Component {
 
 
   async updatefunc(p) {
+    this.props.setProgress(0)
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=cab3fe3e050947b3b5f8bf94113c1d80&page=${p}&pageSize=${this.props.pageSize}`
     this.setState({
       loading: true
@@ -48,6 +49,7 @@ export class News extends Component {
       totalResults: parseddata.totalResults,
       loading: false
     })
+    this.props.setProgress(100)
 
   }
 
